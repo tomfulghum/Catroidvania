@@ -16147,17 +16147,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkTrail_PS
       objectReference: {fileID: 0}
-    - target: {fileID: 6715048958752420896, guid: e5634efd31d19b8419c9b28c8a0695f1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6715048958752420911, guid: e5634efd31d19b8419c9b28c8a0695f1, type: 3}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6715048958752420911, guid: e5634efd31d19b8419c9b28c8a0695f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.04
+      value: 4.87
       objectReference: {fileID: 0}
     - target: {fileID: 6715048958752420911, guid: e5634efd31d19b8419c9b28c8a0695f1, type: 3}
       propertyPath: m_LocalPosition.y
