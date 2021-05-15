@@ -81,12 +81,8 @@ public class CongaCat : MonoBehaviour
             return;
 
         if (IsLeader) {
-            Debug.Log("Fuck this");
-
             if (!follower)
                 return;
-
-            Debug.Log("Fuck that");
 
             var last = FindLast();
             MoveCongaLine(last.targetPosition);
