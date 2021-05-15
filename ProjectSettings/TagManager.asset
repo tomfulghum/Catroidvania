@@ -36,7 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - BlockPlayer
   m_SortingLayers:
   - name: Default
     uniqueID: 0

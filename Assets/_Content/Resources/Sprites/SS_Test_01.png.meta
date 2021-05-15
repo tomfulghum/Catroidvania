@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 59b36e1c438a73445907e9fac80fb487
+guid: 0dcfd3bd82ecdfe4e9917430ee0433f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2615764376158841728
-    second: Cat_Chonk_Walk_0
+      213: 139135575961383311
+    second: SS_Test_Blocked
   - first:
-      213: 8280300099330624037
-    second: Cat_Chonk_Walk_1
+      213: -8227517633723526997
+    second: SS_Test_Free
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -71,7 +71,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 32
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -83,7 +83,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 32
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -131,7 +131,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 32
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -145,7 +145,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cat_Chonk_Walk_0
+      name: SS_Test_Blocked
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f813cc4b11f4ee100800000000000000
+      internalID: 139135575961383311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SS_Test_Free
       rect:
         serializedVersion: 2
         x: 0
@@ -153,35 +174,14 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0845ee6a820f2bbd0800000000000000
-      internalID: -2615764376158841728
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cat_Chonk_Walk_1
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52acb36c11989e270800000000000000
-      internalID: 8280300099330624037
+      spriteID: ba095aaad4cf1dd80800000000000000
+      internalID: -8227517633723526997
       vertices: []
       indices: 
       edges: []
@@ -189,7 +189,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 5c1afb763f63d18478dddd8ec1305820
     internalID: 0
     vertices: []
     indices: 
