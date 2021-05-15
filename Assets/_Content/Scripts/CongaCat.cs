@@ -42,7 +42,7 @@ public class CongaCat : MonoBehaviour
 
     void Update()
     {
-        if (willBeLeader) { 
+        if (willBeLeader) {
             IsLeader = true;
             willBeLeader = false;
         }
@@ -77,20 +77,15 @@ public class CongaCat : MonoBehaviour
 
     public void OnAction(InputAction.CallbackContext context)
     {
-        if (!context.started)
+        if (!context.started || !IsLeader || !follower)
             return;
 
-        if (IsLeader) {
-            if (!follower)
-                return;
+        var last = FindLast();
+        MoveCongaLine(last.targetPosition);
 
-            var last = FindLast();
-            MoveCongaLine(last.targetPosition);
-
-            IsLeader = false;
-            follower.willBeLeader = true;
-            last.follower = this;
-            follower = null;
-        }
+        IsLeader = false;
+        follower.willBeLeader = true;
+        last.follower = this;
+        follower = null;
     }
 }
