@@ -23,12 +23,12 @@ public class PlayerMovement : MonoBehaviour
         moveCooldownTimer -= Time.deltaTime;
     }
 
-    public void OnMove(InputValue value)
+    public void OnMove(InputAction.CallbackContext context)
     {
         if (moveCooldownTimer > 0)
             return;
 
-        var vector = value.Get<Vector2>();
+        var vector = context.ReadValue<Vector2>();
         if (vector == Vector2.zero)
             return;
 
