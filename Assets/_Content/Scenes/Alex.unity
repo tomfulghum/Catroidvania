@@ -15851,7 +15851,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7450683, y: 1}
+    m_SensorSize: {x: 0.8894422, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16144,12 +16144,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3066476914449913151, guid: fe43e5091f21c1449b5fe7054b1cae30, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4904025318747869603, guid: fe43e5091f21c1449b5fe7054b1cae30, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4939694814848919296, guid: fe43e5091f21c1449b5fe7054b1cae30, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2087037856}
     - target: {fileID: 4949325843069317688, guid: fe43e5091f21c1449b5fe7054b1cae30, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -16223,6 +16227,10 @@ PrefabInstance:
     - target: {fileID: 1316996256856152897, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316996256856152897, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1316996256856152901, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
       propertyPath: m_Pivot.x
