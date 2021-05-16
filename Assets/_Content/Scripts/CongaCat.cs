@@ -19,16 +19,16 @@ public class CongaCat : MonoBehaviour
     [SerializeField] float tileSize = 0.5f;
     [SerializeField] float moveCooldownTime = 0.15f;
 
+    Vector3 spawnPosition;
+    Vector3 targetPosition;
+    Vector3 previousPosition;
+    bool isMoving;
+
     public CatType Type => type;
     public bool IsLeader { get; set; }
     public bool WillBeLeader { get; set; }
 
     public CongaCat follower;
-
-    Vector3 spawnPosition;
-    Vector3 targetPosition;
-    Vector3 previousPosition;
-    bool isMoving;
 
     void OnEnable()
     {

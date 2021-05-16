@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] LayerMask pushableMask;
+    [SerializeField] LayerMask pushableCollisionMask;
     [SerializeField] LayerMask collisionMask;
     [SerializeField] float tileSize = 0.5f;
     [SerializeField] float moveCooldownTime = 0.15f;
@@ -38,7 +40,13 @@ public class PlayerMovement : MonoBehaviour
         else if (vector.y != 0)
             direction = new Vector3(0, Mathf.Sign(vector.y) * tileSize, 0);
 
-        if (!Physics2D.OverlapCircle(transform.position + direction, 0.1f, collisionMask)) {
+        bool canMove = true;
+        var pushableCollider = Physics2D.OverlapCircle(transform.position + direction, 0.1f, pushableMask);
+        if (pushableCollider) {
+            canMove = !Physics2D.OverlapCircle(transform.position + (direction * 2), 0.1f, pushableCollisionMask);
+        }
+
+        if (canMove && !Physics2D.OverlapCircle(transform.position + direction, 0.1f, collisionMask)) {
             var previousPosition = transform.position;
             transform.position += direction;
             OnPlayerMoved?.Invoke(transform.position);

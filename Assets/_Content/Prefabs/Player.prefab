@@ -44,6 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c90acab3893b1344ae73771a74b20da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pushableMask:
+    serializedVersion: 2
+    m_Bits: 268435456
+  pushableCollisionMask:
+    serializedVersion: 2
+    m_Bits: 4160749568
   collisionMask:
     serializedVersion: 2
     m_Bits: 2147483648
