@@ -272,14 +272,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1798641382, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 32
-      objectReference: {fileID: 0}
-    - target: {fileID: 1316996256742191763, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
-      propertyPath: m_text
-      value: pushy cat
-      objectReference: {fileID: 0}
     - target: {fileID: 1316996256856152897, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
       propertyPath: m_Name
       value: UICanvas
@@ -372,42 +364,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2087037856}
-    - target: {fileID: 3995559610637631407, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 3995559610637631407, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3995559610637631407, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 3995559610637631407, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 7409773270405556368, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 32
-      objectReference: {fileID: 0}
-    - target: {fileID: 8926299754282801089, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.46226418
-      objectReference: {fileID: 0}
-    - target: {fileID: 8926299754282801089, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.34858122
-      objectReference: {fileID: 0}
-    - target: {fileID: 8926299754282801089, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.115566045
-      objectReference: {fileID: 0}
-    - target: {fileID: 8926299754282801089, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4285946141
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
 --- !u!1 &593657466
@@ -1983,7 +1939,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0789075, y: 1}
+    m_SensorSize: {x: 1.4262948, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
