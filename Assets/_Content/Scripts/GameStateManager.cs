@@ -73,11 +73,13 @@ public class GameStateManager : MonoBehaviour
     {
         StartCoroutine(LevelResetCoroutine());
         stepCounter = 0;
+        stepCountChangedEvent.Raise(stepCounter);
     }
 
     public void OnLevelFinished(int id)
     {
         currentLevelId = id + 1;
         stepCounter = 0;
+        stepCountChangedEvent.Raise(stepCounter);
     }
 }
