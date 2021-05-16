@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  catPickupMask:
+    serializedVersion: 2
+    m_Bits: 1073741824
   tileSize: 0.5
   moveCooldownTime: 0.15
   follower: {fileID: 0}

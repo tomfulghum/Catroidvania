@@ -35,7 +35,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - CatPickup
   - BlockPlayer
   m_SortingLayers:
   - name: Default

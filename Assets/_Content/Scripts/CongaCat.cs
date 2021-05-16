@@ -12,6 +12,7 @@ public enum CatType
 public class CongaCat : MonoBehaviour
 {
     [SerializeField] CatType type;
+    [SerializeField] LayerMask catPickupMask;
     [SerializeField] float tileSize = 0.5f;
     [SerializeField] float moveCooldownTime = 0.15f;
 
@@ -49,6 +50,17 @@ public class CongaCat : MonoBehaviour
 
         var speed = (tileSize / moveCooldownTime) * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed);
+
+        if (IsLeader) {
+            var pickup = Physics2D.OverlapCircle(targetPosition, 0.1f, catPickupMask);
+            if (pickup) {
+                var congaCat = pickup.GetComponent<CongaCat>();
+                var last = FindLast();
+                last.follower = congaCat;
+                congaCat.targetPosition = last.previousPosition;
+                congaCat.gameObject.layer = LayerMask.NameToLayer("BlockPlayer");
+            }
+        }
     }
 
     void OnPlayerMoved(Vector2 newPosition)
