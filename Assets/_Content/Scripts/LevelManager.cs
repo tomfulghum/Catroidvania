@@ -12,18 +12,6 @@ public class LevelManager : MonoBehaviour
 
     GameObject activePlayer = null;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void LoadLevel(int id)
     {
         if (id >= levels.Count || id < 0)

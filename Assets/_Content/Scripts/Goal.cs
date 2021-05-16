@@ -12,13 +12,6 @@ public class Goal : MonoBehaviour
 
     bool locked = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (!locked && Physics2D.OverlapCircle(transform.position, 0.1f, playerMask)) {

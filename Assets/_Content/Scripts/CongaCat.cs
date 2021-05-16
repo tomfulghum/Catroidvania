@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,12 +7,14 @@ public enum CatType
     Sowa,
     Chonk,
     Small,
-    Push
+    Push,
+    Useless
 }
 
 public class CongaCat : MonoBehaviour
 {
     [SerializeField] CatType type;
+    [SerializeField] LayerMask playerMask;
     [SerializeField] LayerMask catPickupMask;
     [SerializeField] float tileSize = 0.5f;
     [SerializeField] float moveCooldownTime = 0.15f;
@@ -22,9 +25,10 @@ public class CongaCat : MonoBehaviour
 
     public CongaCat follower;
 
+    Vector3 spawnPosition;
     Vector3 targetPosition;
     Vector3 previousPosition;
-
+    bool isMoving;
 
     void OnEnable()
     {
@@ -38,6 +42,7 @@ public class CongaCat : MonoBehaviour
 
     void Start()
     {
+        spawnPosition = transform.position;
         targetPosition = transform.position;
         if (type == CatType.Sowa)
             IsLeader = true;
@@ -52,23 +57,45 @@ public class CongaCat : MonoBehaviour
 
         var speed = (tileSize / moveCooldownTime) * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed);
+        isMoving = transform.position != targetPosition;
 
-        if (IsLeader) {
-            var pickup = Physics2D.OverlapCircle(targetPosition, 0.1f, catPickupMask);
-            if (pickup) {
-                var congaCat = pickup.GetComponent<CongaCat>();
+        if (!IsLeader)
+            return;
+
+        // Inter-Cat Collision
+        var scatterCollisions = Physics2D.OverlapCircleAll(targetPosition, 0.1f, playerMask);
+        foreach (var collision in scatterCollisions) {
+            var scatterCat = collision.GetComponent<CongaCat>();
+            if (scatterCat != this && !scatterCat.isMoving) {
+                var scatterCatLeader = FindLeaderOf(scatterCat);
+                scatterCatLeader.follower = null;
+                scatterCat.ScatterCats();
+            }
+        }
+
+        // Cat Pickup
+        var pickup = Physics2D.OverlapCircle(targetPosition, 0.1f, catPickupMask);
+        if (pickup) {
+            var pickupCat = pickup.GetComponent<CongaCat>();
+            if (!pickupCat.isMoving) {
                 var last = FindLast();
-                last.follower = congaCat;
-                congaCat.targetPosition = last.previousPosition;
-                congaCat.gameObject.layer = LayerMask.NameToLayer("Player");
+                last.follower = pickupCat;
+                pickupCat.targetPosition = last.previousPosition;
+                pickupCat.gameObject.layer = LayerMask.NameToLayer("Player");
             }
         }
     }
 
     void OnPlayerMoved(Vector2 newPosition)
     {
-        if (IsLeader)
+        if (IsLeader) {
+            if (newPosition == (Vector2)previousPosition && follower) {
+                follower.ScatterCats();
+                follower = null;
+            }
+
             MoveCongaLine(new Vector3(newPosition.x, newPosition.y, -1));
+        }
     }
 
     void MoveCongaLine(Vector3 newPosition)
@@ -88,6 +115,26 @@ public class CongaCat : MonoBehaviour
         return follower.FindLast();
     }
 
+    CongaCat FindLeaderOf(CongaCat cat)
+    {
+        if (follower == cat)
+            return this;
+
+        return follower.FindLeaderOf(cat);
+    }
+
+    void ScatterCats()
+    {
+        targetPosition = spawnPosition;
+        isMoving = true;
+        gameObject.layer = LayerMask.NameToLayer("CatPickup");
+
+        if (follower)
+            follower.ScatterCats();
+
+        follower = null;
+    }
+
     public void OnAction(InputAction.CallbackContext context)
     {
         if (!context.started || !IsLeader || !follower)
@@ -100,6 +147,7 @@ public class CongaCat : MonoBehaviour
         follower.WillBeLeader = true;
         last.follower = this;
         follower = null;
+        isMoving = true;
     }
 
     public void OnLevelFinished()

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 2684354560
+    m_Bits: 2147483648
   tileSize: 0.5
   moveCooldownTime: 0.15
 --- !u!114 &7373113841127926618

@@ -49,6 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 536870912
   catPickupMask:
     serializedVersion: 2
     m_Bits: 1073741824

@@ -21,18 +21,17 @@ public class CatButton : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        var cat = Physics2D.OverlapCircle(transform.position, 0.1f, playerMask)?.GetComponent<CongaCat>();
+        var catCollider = Physics2D.OverlapCircle(transform.position, 0.1f, playerMask);
+        CongaCat cat = null;
+        if (catCollider)
+            cat = catCollider.GetComponent<CongaCat>();
+        bool isChonker = cat && cat.Type == CatType.Chonk;
 
-        if (!cat && !active && pressed) {
+        if (!isChonker && !active && pressed) {
             StartCoroutine(ButtonPressedCoroutine());
-        } else if (cat && cat.Type == CatType.Chonk) {
+        } else if (isChonker && !pressed) {
             pressed = true;
             anim.SetBool("Pressed", true);
             OnButtonPressed?.Invoke(id, true);
