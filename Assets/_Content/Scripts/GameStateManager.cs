@@ -8,23 +8,27 @@ public class GameStateManager : MonoBehaviour
 {
     [SerializeField] BasicEvent gameStartedEvent;
     [SerializeField] IntEvent levelFinishedEvent;
+    [SerializeField] IntEvent stepCountChangedEvent;
 
     static GameStateManager instance;
 
     static CatType leadingCatType;
 
     int currentLevelId;
+    int stepCounter;
 
     public static CatType LeadingCatType => leadingCatType;
 
     void OnEnable()
     {
         CongaCat.OnLeaderCatTypeChanged += OnLeaderCatTypeChanged;
+        CongaCat.OnStep += OnStep;
     }
 
     void OnDisable()
     {
         CongaCat.OnLeaderCatTypeChanged -= OnLeaderCatTypeChanged;
+        CongaCat.OnStep -= OnStep;
     }
 
     void Awake()
@@ -42,11 +46,18 @@ public class GameStateManager : MonoBehaviour
     void Start()
     {
         currentLevelId = 0;
+        stepCounter = 0;
     }
 
     void OnLeaderCatTypeChanged(CatType type)
     {
         leadingCatType = type;
+    }
+
+    void OnStep()
+    {
+        stepCounter++;
+        stepCountChangedEvent.Raise(stepCounter);
     }
 
     IEnumerator LevelResetCoroutine()
@@ -61,10 +72,12 @@ public class GameStateManager : MonoBehaviour
     public void OnLevelReset()
     {
         StartCoroutine(LevelResetCoroutine());
+        stepCounter = 0;
     }
 
     public void OnLevelFinished(int id)
     {
         currentLevelId = id + 1;
+        stepCounter = 0;
     }
 }

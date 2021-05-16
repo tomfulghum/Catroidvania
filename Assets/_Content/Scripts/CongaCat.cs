@@ -30,8 +30,11 @@ public class CongaCat : MonoBehaviour
     public bool IsLeader { get; set; }
     public bool WillBeLeader { get; set; }
 
-    public delegate void LeaderCatTypeChanged(CatType type);
-    public static event LeaderCatTypeChanged OnLeaderCatTypeChanged;
+    public delegate void LeaderCatTypeChangedEvent(CatType type);
+    public static event LeaderCatTypeChangedEvent OnLeaderCatTypeChanged;
+
+    public delegate void StepEvent();
+    public static event StepEvent OnStep;
 
     void OnEnable()
     {
@@ -97,6 +100,7 @@ public class CongaCat : MonoBehaviour
             }
 
             MoveCongaLine(new Vector3(newPosition.x, newPosition.y, -1));
+            OnStep?.Invoke();
         }
     }
 
@@ -150,6 +154,7 @@ public class CongaCat : MonoBehaviour
         last.follower = this;
         follower = null;
         isMoving = true;
+        OnStep?.Invoke();
     }
 
     public void OnLevelFinished()

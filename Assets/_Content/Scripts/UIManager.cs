@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 using tomfulghum.EventSystem;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] BasicEvent levelResetEvent;
+    [SerializeField] TextMeshProUGUI stepCounter;
 
     void Start()
     {
@@ -28,8 +30,8 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void StepCounter(int stepCount)
+    public void OnStepCountChanged(int stepCount)
     {
-
+        stepCounter.text = stepCount.ToString();
     }
 }

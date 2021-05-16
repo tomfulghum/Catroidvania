@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStartedEvent: {fileID: 11400000, guid: fd1ddb9ddc172aa44bdefed4a86138fd, type: 2}
   levelFinishedEvent: {fileID: 11400000, guid: a77761a6a9592ee4fa4a233d548a16ff, type: 2}
+  stepCountChangedEvent: {fileID: 11400000, guid: d43b1010cff0aa34fafbd7cdda1cdd6f, type: 2}
 --- !u!114 &4280371482233220458
 MonoBehaviour:
   m_ObjectHideFlags: 0
