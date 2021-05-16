@@ -3714,6 +3714,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 8556398343945224486, guid: 641cf8595696efd4fbcac94d80decfbd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8556398343945224507, guid: 641cf8595696efd4fbcac94d80decfbd, type: 3}
       propertyPath: m_RootOrder
       value: 4
