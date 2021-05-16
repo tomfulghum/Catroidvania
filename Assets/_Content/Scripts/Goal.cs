@@ -10,7 +10,13 @@ public class Goal : MonoBehaviour
     [SerializeField] LayerMask playerMask;
     [SerializeField] float levelFinishDelay = 0.5f;
 
+    AudioSource audioSource;
     bool locked = false;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -20,6 +26,7 @@ public class Goal : MonoBehaviour
             if (sowa.Type == CatType.Sowa) {
                 locked = true;
                 sowa.IsLeader = false;
+                audioSource.Play();
                 StartCoroutine(LevelFinishedCoroutine());
             }
         }
