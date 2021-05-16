@@ -276,6 +276,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 1316996256742191763, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
+      propertyPath: m_text
+      value: pushy cat
+      objectReference: {fileID: 0}
     - target: {fileID: 1316996256856152897, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
       propertyPath: m_Name
       value: UICanvas
@@ -382,7 +386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3995559610637631407, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 32
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 7409773270405556368, guid: 7ca4a97713abfea49960ad0d5d229f07, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1979,7 +1983,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1001518, y: 1}
+    m_SensorSize: {x: 2.0789075, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
