@@ -23,10 +23,11 @@ public class CongaCat : MonoBehaviour
     Vector3 spawnPosition;
     Vector3 targetPosition;
     Vector3 previousPosition;
-    bool isLeader;
+
     bool isMoving;
 
     public CatType Type => type;
+    public bool IsLeader { get; set; }
     public bool WillBeLeader { get; set; }
 
     public delegate void LeaderCatTypeChanged(CatType type);
@@ -51,7 +52,7 @@ public class CongaCat : MonoBehaviour
     void Update()
     {
         if (WillBeLeader) {
-            isLeader = true;
+            IsLeader = true;
             WillBeLeader = false;
             OnLeaderCatTypeChanged?.Invoke(type);
         }
@@ -60,7 +61,7 @@ public class CongaCat : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed);
         isMoving = transform.position != targetPosition;
 
-        if (!isLeader)
+        if (!IsLeader)
             return;
 
         // Inter-Cat Collision
@@ -89,7 +90,7 @@ public class CongaCat : MonoBehaviour
 
     void OnPlayerMoved(Vector2 newPosition)
     {
-        if (isLeader) {
+        if (IsLeader) {
             if (newPosition == (Vector2)previousPosition && follower) {
                 follower.ScatterCats();
                 follower = null;
@@ -138,13 +139,13 @@ public class CongaCat : MonoBehaviour
 
     public void OnAction(InputAction.CallbackContext context)
     {
-        if (!context.started || !isLeader || !follower)
+        if (!context.started || !IsLeader || !follower)
             return;
 
         var last = FindLast();
         MoveCongaLine(last.targetPosition);
 
-        isLeader = false;
+        IsLeader = false;
         follower.WillBeLeader = true;
         last.follower = this;
         follower = null;
@@ -153,6 +154,6 @@ public class CongaCat : MonoBehaviour
 
     public void OnLevelFinished()
     {
-        isLeader = false;
+        IsLeader = false;
     }
 }

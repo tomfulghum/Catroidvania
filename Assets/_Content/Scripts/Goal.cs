@@ -14,9 +14,14 @@ public class Goal : MonoBehaviour
 
     void Update()
     {
-        if (!locked && Physics2D.OverlapCircle(transform.position, 0.1f, playerMask)) {
-            locked = true;
-            StartCoroutine(LevelFinishedCoroutine());
+        var sowaCollider = Physics2D.OverlapCircle(transform.position, 0.1f, playerMask);
+        if (!locked && sowaCollider) {
+            var sowa = sowaCollider.GetComponent<CongaCat>();
+            if (sowa.Type == CatType.Sowa) {
+                locked = true;
+                sowa.IsLeader = false;
+                StartCoroutine(LevelFinishedCoroutine());
+            }
         }
     }
 
