@@ -17,12 +17,13 @@ public class CongaCat : MonoBehaviour
     [SerializeField] float moveCooldownTime = 0.15f;
 
     public bool IsLeader { get; set; }
+    public bool WillBeLeader { get; set; }
 
     public CongaCat follower;
 
     Vector3 targetPosition;
     Vector3 previousPosition;
-    bool willBeLeader;
+
 
     void OnEnable()
     {
@@ -43,9 +44,9 @@ public class CongaCat : MonoBehaviour
 
     void Update()
     {
-        if (willBeLeader) {
+        if (WillBeLeader) {
             IsLeader = true;
-            willBeLeader = false;
+            WillBeLeader = false;
         }
 
         var speed = (tileSize / moveCooldownTime) * Time.deltaTime;
@@ -58,16 +59,15 @@ public class CongaCat : MonoBehaviour
                 var last = FindLast();
                 last.follower = congaCat;
                 congaCat.targetPosition = last.previousPosition;
-                congaCat.gameObject.layer = LayerMask.NameToLayer("BlockPlayer");
+                congaCat.gameObject.layer = LayerMask.NameToLayer("Player");
             }
         }
     }
 
     void OnPlayerMoved(Vector2 newPosition)
     {
-        if (IsLeader) {
+        if (IsLeader)
             MoveCongaLine(new Vector3(newPosition.x, newPosition.y, -1));
-        }
     }
 
     void MoveCongaLine(Vector3 newPosition)
@@ -96,8 +96,13 @@ public class CongaCat : MonoBehaviour
         MoveCongaLine(last.targetPosition);
 
         IsLeader = false;
-        follower.willBeLeader = true;
+        follower.WillBeLeader = true;
         last.follower = this;
         follower = null;
+    }
+
+    public void OnLevelFinished()
+    {
+        IsLeader = false;
     }
 }
