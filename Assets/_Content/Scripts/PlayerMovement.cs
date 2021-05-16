@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveCooldownTime = 0.15f;
 
     float moveCooldownTimer = -1f;
+    bool canPush = false;
 
     public delegate void PlayerMovedEvent(Vector2 newPosition);
     public static event PlayerMovedEvent OnPlayerMoved;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveCooldownTimer -= Time.deltaTime;
+        canPush = GameStateManager.LeadingCatType == CatType.Push;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -43,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         bool canMove = true;
         var pushableCollider = Physics2D.OverlapCircle(transform.position + direction, 0.1f, pushableMask);
         if (pushableCollider) {
-            canMove = !Physics2D.OverlapCircle(transform.position + (direction * 2), 0.1f, pushableCollisionMask);
+            canMove = canPush && !Physics2D.OverlapCircle(transform.position + (direction * 2), 0.1f, pushableCollisionMask);
         }
 
         if (canMove && !Physics2D.OverlapCircle(transform.position + direction, 0.1f, collisionMask)) {

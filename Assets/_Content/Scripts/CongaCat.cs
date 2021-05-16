@@ -19,16 +19,18 @@ public class CongaCat : MonoBehaviour
     [SerializeField] float tileSize = 0.5f;
     [SerializeField] float moveCooldownTime = 0.15f;
 
+    CongaCat follower;
     Vector3 spawnPosition;
     Vector3 targetPosition;
     Vector3 previousPosition;
+    bool isLeader;
     bool isMoving;
 
     public CatType Type => type;
-    public bool IsLeader { get; set; }
     public bool WillBeLeader { get; set; }
 
-    public CongaCat follower;
+    public delegate void LeaderCatTypeChanged(CatType type);
+    public static event LeaderCatTypeChanged OnLeaderCatTypeChanged;
 
     void OnEnable()
     {
@@ -44,22 +46,21 @@ public class CongaCat : MonoBehaviour
     {
         spawnPosition = transform.position;
         targetPosition = transform.position;
-        if (type == CatType.Sowa)
-            IsLeader = true;
     }
 
     void Update()
     {
         if (WillBeLeader) {
-            IsLeader = true;
+            isLeader = true;
             WillBeLeader = false;
+            OnLeaderCatTypeChanged?.Invoke(type);
         }
 
         var speed = (tileSize / moveCooldownTime) * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed);
         isMoving = transform.position != targetPosition;
 
-        if (!IsLeader)
+        if (!isLeader)
             return;
 
         // Inter-Cat Collision
@@ -88,7 +89,7 @@ public class CongaCat : MonoBehaviour
 
     void OnPlayerMoved(Vector2 newPosition)
     {
-        if (IsLeader) {
+        if (isLeader) {
             if (newPosition == (Vector2)previousPosition && follower) {
                 follower.ScatterCats();
                 follower = null;
@@ -137,13 +138,13 @@ public class CongaCat : MonoBehaviour
 
     public void OnAction(InputAction.CallbackContext context)
     {
-        if (!context.started || !IsLeader || !follower)
+        if (!context.started || !isLeader || !follower)
             return;
 
         var last = FindLast();
         MoveCongaLine(last.targetPosition);
 
-        IsLeader = false;
+        isLeader = false;
         follower.WillBeLeader = true;
         last.follower = this;
         follower = null;
@@ -152,6 +153,6 @@ public class CongaCat : MonoBehaviour
 
     public void OnLevelFinished()
     {
-        IsLeader = false;
+        isLeader = false;
     }
 }
