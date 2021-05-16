@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6505204710073037932}
   - component: {fileID: 4478691996966218959}
+  - component: {fileID: 3757167856924797147}
   - component: {fileID: 2574393841685528182}
   - component: {fileID: 6505204710073037934}
   - component: {fileID: 6505204710073037933}
   - component: {fileID: 792472986013899089}
-  m_Layer: 31
+  m_Layer: 29
   m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,6 +55,46 @@ MonoBehaviour:
   tileSize: 0.5
   moveCooldownTime: 0.15
   follower: {fileID: 0}
+--- !u!114 &3757167856924797147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505204710073037931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73939ebe73a17f74691b568b80dc7d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event: {fileID: 11400000, guid: a77761a6a9592ee4fa4a233d548a16ff, type: 2}
+  m_basicEventResponse:
+    m_PersistentCalls:
+      m_Calls: []
+  m_boolEventResponse:
+    m_PersistentCalls:
+      m_Calls: []
+  m_intEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4478691996966218959}
+        m_TargetAssemblyTypeName: CongaCat, Assembly-CSharp
+        m_MethodName: OnLevelFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_floatEventResponse:
+    m_PersistentCalls:
+      m_Calls: []
+  m_stringEventResponse:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2574393841685528182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +184,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1690200161
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 6552621012368381594, guid: d12fb308fb839734192f9f0157fb5105, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

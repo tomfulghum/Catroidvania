@@ -28,7 +28,9 @@ namespace tomfulghum.EventSystem
             base.Raise();
 
             Trigger?.Invoke();
-            foreach (var eventListener in eventListeners) {
+            var eventListenersArr = new GameEventListener[eventListeners.Count];
+            eventListeners.CopyTo(eventListenersArr);
+            foreach (var eventListener in eventListenersArr) {
                 eventListener.InvokeBasicEventResponse();
             }
         }
