@@ -408,13 +408,14 @@ GameObject:
   - component: {fileID: 1316996256856152902}
   - component: {fileID: 1316996256856152903}
   - component: {fileID: 1316996256856152896}
+  - component: {fileID: 1985358074}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1316996256856152901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -456,7 +457,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1154426011
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &1316996256856152903
@@ -499,6 +500,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1985358074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316996256856152897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6237920872dab4c867f4786f711a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelResetEvent: {fileID: 11400000, guid: 73d6addba9262ae4faa4ef0269163d67, type: 2}
 --- !u!1 &1316996257492117571
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +782,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4926107920140702996}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1985358074}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnResetButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1685748607824487266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1273,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2042621042864465178}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1985358074}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnExitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5678767267659448488
 GameObject:
   m_ObjectHideFlags: 0

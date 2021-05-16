@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4083104847347818646
+--- !u!1 &4297121445089602347
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4083104847347818643}
-  - component: {fileID: 4083104847347818642}
-  - component: {fileID: 4083104847347818640}
-  - component: {fileID: 4083104847347818641}
-  - component: {fileID: 4083104847347818637}
-  m_Layer: 31
-  m_Name: Gate
+  - component: {fileID: 4297121445089602350}
+  - component: {fileID: 4297121445089602349}
+  - component: {fileID: 4297121445089602348}
+  - component: {fileID: 4297121445089602351}
+  m_Layer: 28
+  m_Name: PushBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4083104847347818643
+--- !u!4 &4297121445089602350
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4083104847347818646}
+  m_GameObject: {fileID: 4297121445089602347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,28 +33,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4083104847347818642
+--- !u!114 &4297121445089602349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4083104847347818646}
+  m_GameObject: {fileID: 4297121445089602347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d154678bc0a5d36448cdacef50635348, type: 3}
+  m_Script: {fileID: 11500000, guid: a6adad71c7449054ea2daddd58390651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activationId: 0
-  activationCount: 1
-  toggle: 0
---- !u!212 &4083104847347818640
+  pushingMask:
+    serializedVersion: 2
+    m_Bits: 536870912
+  tileSize: 0.5
+  moveSpeed: 6
+--- !u!212 &4297121445089602348
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4083104847347818646}
+  m_GameObject: {fileID: 4297121445089602347}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -89,8 +90,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2106793355
   m_SortingLayer: 1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 919305826292751810, guid: be258465e00501a4c918e7746d139ecc, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 87d2d373c0cb5a54a8d225ad1b7eacd7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,32 +102,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4083104847347818641
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4083104847347818646}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 09c0e76f267501241b9c788a8a92c142, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &4083104847347818637
+--- !u!61 &4297121445089602351
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4083104847347818646}
+  m_GameObject: {fileID: 4297121445089602347}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

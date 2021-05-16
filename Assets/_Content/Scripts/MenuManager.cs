@@ -5,7 +5,7 @@ using tomfulghum.EventSystem;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] BasicEvent gameStartEvent;
+    [SerializeField] BasicEvent gameStartedEvent;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnStartButton()
     {
-        gameStartEvent.Raise();
+        gameStartedEvent.Raise();
     }
 
     public void QuitGame()

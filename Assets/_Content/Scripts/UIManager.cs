@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using tomfulghum.EventSystem;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] BasicEvent resetGame;
-    [SerializeField] BasicEvent goToMainMenu;
+    [SerializeField] BasicEvent levelResetEvent;
 
     void Start()
     {
@@ -20,12 +20,12 @@ public class UIManager : MonoBehaviour
 
     public void OnResetButton()
     {
-        resetGame.Raise();
+        levelResetEvent.Raise();
     }
 
     public void OnExitButton()
     {
-        goToMainMenu.Raise();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void StepCounter(int stepCount)
