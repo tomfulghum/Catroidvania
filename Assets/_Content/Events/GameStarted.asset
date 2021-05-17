@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61342e6a41e297c488fa93fb3727054d, type: 3}
   m_Name: GameStarted
   m_EditorClassIdentifier: 
-  debugMessages: 1
+  debugMessages: 0
