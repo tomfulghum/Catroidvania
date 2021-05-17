@@ -4408,7 +4408,7 @@ PrefabInstance:
     - target: {fileID: 6682394254423630754, guid: a82d94c418e023e4989e42820572d188, type: 3}
       propertyPath: levelData
       value: 
-      objectReference: {fileID: 11400000, guid: fdf876ee3efb2384cb27ad36c3b230e2, type: 2}
+      objectReference: {fileID: 11400000, guid: 32cc31916846ce04fb02169a0d70a061, type: 2}
     - target: {fileID: 6682394254423630755, guid: a82d94c418e023e4989e42820572d188, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -6086,7 +6086,7 @@ PrefabInstance:
     - target: {fileID: 6682394254423630754, guid: a82d94c418e023e4989e42820572d188, type: 3}
       propertyPath: levelData
       value: 
-      objectReference: {fileID: 11400000, guid: fdf876ee3efb2384cb27ad36c3b230e2, type: 2}
+      objectReference: {fileID: 11400000, guid: 6322804a402be254f812ad7af063127d, type: 2}
     - target: {fileID: 6682394254423630755, guid: a82d94c418e023e4989e42820572d188, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -28243,7 +28243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2142311544
 Transform:
   m_ObjectHideFlags: 0
