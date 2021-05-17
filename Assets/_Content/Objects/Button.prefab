@@ -50,7 +50,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 1610612736
-  pressedTime: 2
+  pressedTime: 0.2
 --- !u!212 &859884828921707655
 SpriteRenderer:
   m_ObjectHideFlags: 0
