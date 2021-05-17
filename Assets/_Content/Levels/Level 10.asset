@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Level 10
   m_EditorClassIdentifier: 
   id: 10
-  offset: {x: 0, y: -10}
-  spawnPosition: {x: -2.5, y: -0.5}
+  offset: {x: 200, y: 0}
+  spawnPosition: {x: -1, y: -0.5}
   spawnCat: {fileID: 5521857417017500310, guid: 3a3d4ee286fb2aa46ac15e5e71118527, type: 3}
