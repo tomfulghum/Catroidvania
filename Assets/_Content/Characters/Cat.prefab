@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6505204710073037934}
   - component: {fileID: 6505204710073037933}
   - component: {fileID: 792472986013899089}
-  m_Layer: 29
+  m_Layer: 30
   m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,6 @@ MonoBehaviour:
     m_Bits: 1073741824
   tileSize: 0.5
   moveCooldownTime: 0.15
-  follower: {fileID: 0}
 --- !u!114 &3757167856924797147
 MonoBehaviour:
   m_ObjectHideFlags: 0

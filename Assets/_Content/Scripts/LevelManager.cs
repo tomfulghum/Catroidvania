@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
 
         var spawnPosition = (Vector3)levelData.Offset + new Vector3(levelData.SpawnPosition.x, levelData.SpawnPosition.y, -1);
         var spawnCat = Instantiate(levelData.SpawnCat, spawnPosition, Quaternion.identity).GetComponent<CongaCat>();
+        spawnCat.gameObject.layer = LayerMask.NameToLayer("Player");
         spawnCat.WillBeLeader = true;
 
         foreach (var cam in cameras)

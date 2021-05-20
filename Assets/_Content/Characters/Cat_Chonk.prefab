@@ -15,10 +15,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat_Chonk
       objectReference: {fileID: 0}
-    - target: {fileID: 6505204710073037931, guid: 0e662143cdc10d844b9a7f9ac4ffec2c, type: 3}
-      propertyPath: m_Layer
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 6505204710073037932, guid: 0e662143cdc10d844b9a7f9ac4ffec2c, type: 3}
       propertyPath: m_RootOrder
       value: 0

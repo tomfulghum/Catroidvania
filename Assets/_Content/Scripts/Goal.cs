@@ -20,12 +20,12 @@ public class Goal : MonoBehaviour
 
     void Update()
     {
-        var sowaCollider = Physics2D.OverlapCircle(transform.position, 0.1f, playerMask);
-        if (!locked && sowaCollider) {
-            var sowa = sowaCollider.GetComponent<CongaCat>();
-            if (sowa.Type == CatType.Sowa) {
+        var catCollider = Physics2D.OverlapCircle(transform.position, 0.1f, playerMask);
+        if (!locked && catCollider) {
+            var cat = catCollider.GetComponent<CongaCat>();
+            if (cat.IsLeader) {
                 locked = true;
-                sowa.IsLeader = false;
+                cat.IsLeader = false;
                 audioSource.Play();
                 StartCoroutine(LevelFinishedCoroutine());
             }
