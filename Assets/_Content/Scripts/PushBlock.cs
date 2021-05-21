@@ -27,7 +27,7 @@ public class PushBlock : MonoBehaviour
         var pushingCollider = Physics2D.OverlapCircle(transform.position, .2f, pushingMask);
         if (pushingCollider) {
             var pushCat = pushingCollider.GetComponent<CongaCat>();
-            if (pushCat.Type == CatType.Push) {
+            if (pushCat.Type == CatType.Push && pushCat.IsLeader) {
                 Vector3 direction = ((Vector2)(transform.position - pushingCollider.transform.position)).normalized * tileSize;
                 targetPosition = transform.position + direction;
             }

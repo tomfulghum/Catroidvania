@@ -93,15 +93,16 @@ public class CongaCat : MonoBehaviour
 
     void OnPlayerMoved(Vector2 newPosition)
     {
-        if (IsLeader) {
-            if (newPosition == (Vector2)previousPosition && follower) {
-                follower.ScatterCats();
-                follower = null;
-            }
+        if (!IsLeader)
+            return;
 
-            MoveCongaLine(new Vector3(newPosition.x, newPosition.y, -1));
-            OnStep?.Invoke();
+        if (newPosition == (Vector2)previousPosition && follower) {
+            follower.ScatterCats();
+            follower = null;
         }
+
+        MoveCongaLine(new Vector3(newPosition.x, newPosition.y, -1));
+        OnStep?.Invoke();
     }
 
     void MoveCongaLine(Vector3 newPosition)

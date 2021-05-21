@@ -23,7 +23,7 @@ public class Goal : MonoBehaviour
         var catCollider = Physics2D.OverlapCircle(transform.position, 0.1f, playerMask);
         if (!locked && catCollider) {
             var cat = catCollider.GetComponent<CongaCat>();
-            if (cat.IsLeader) {
+            if (cat.Type == CatType.Sowa) {
                 locked = true;
                 cat.IsLeader = false;
                 audioSource.Play();
