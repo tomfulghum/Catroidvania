@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 20
   offset: {x: 400, y: 0}
-  spawnPosition: {x: -2, y: 0}
+  spawnPosition: {x: -2, y: -0.5}
   spawnCat: {fileID: 5521857417017500310, guid: 3a3d4ee286fb2aa46ac15e5e71118527, type: 3}
