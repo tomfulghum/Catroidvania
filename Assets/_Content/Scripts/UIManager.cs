@@ -8,6 +8,7 @@ using tomfulghum.EventSystem;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] BasicEvent levelResetEvent;
+    [SerializeField] BasicEvent gameExitEvent;
     [SerializeField] TextMeshProUGUI stepCounter;
 
     void Start()
@@ -27,6 +28,7 @@ public class UIManager : MonoBehaviour
 
     public void OnExitButton()
     {
+        gameExitEvent.Raise();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
