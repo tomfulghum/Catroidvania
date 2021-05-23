@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveCooldownTimer -= Time.deltaTime;
-        canPush = GameStateManager.LeadingCatType == CatType.Push;
+        canPush = GameStateManager.Instance.LeadingCatType == CatType.Push;
     }
 
     public void OnMove(InputAction.CallbackContext context)

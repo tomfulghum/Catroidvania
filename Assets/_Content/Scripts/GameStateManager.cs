@@ -4,20 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using tomfulghum.EventSystem;
 
-public class GameStateManager : MonoBehaviour
+public class GameStateManager : SingletonBehaviour<GameStateManager>
 {
     [SerializeField] BasicEvent gameStartedEvent;
     [SerializeField] IntEvent levelFinishedEvent;
     [SerializeField] IntEvent stepCountChangedEvent;
 
-    static GameStateManager instance;
-
-    static CatType leadingCatType;
-
+    CatType leadingCatType;
     int currentLevelId;
     int stepCounter;
 
-    public static CatType LeadingCatType => leadingCatType;
+    public CatType LeadingCatType => leadingCatType;
 
     void OnEnable()
     {
@@ -29,18 +26,6 @@ public class GameStateManager : MonoBehaviour
     {
         CongaCat.OnLeaderCatTypeChanged -= OnLeaderCatTypeChanged;
         CongaCat.OnStep -= OnStep;
-    }
-
-    void Awake()
-    {
-        if (instance) {
-            Destroy(gameObject);
-            return;
-        } else {
-            instance = this;
-        }
-
-        DontDestroyOnLoad(this);
     }
 
     void Start()
